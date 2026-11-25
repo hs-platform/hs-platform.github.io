@@ -1,55 +1,274 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HS Platform</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1><a href="index.html">HS Platform</a></h1>
+@import url('https://googleapis.com');
 
-  <div class="search-box">
-    <span>&#9906;</span>
-    <input type="text" placeholder="Search...">
-  </div>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <nav>
-    <a href="login.html">LOGIN</a>
-    <a href="studio.html">STUDIO</a>
-    <a href="add.html">ADD</a>
-    <a href="pages.html">PAGES</a>
-    <a href="academy.html">ACADEMY</a>
-  </nav>
+body {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 50px 10%;
+  max-width: 1000px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-  <div class="section-title">New Articles</div>
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
 
-  <div class="article">
-    <a href="#" class="article-title">How to join a cybersecurity or devops brand?</a>
-    <div class="article-meta">
-      by <a href="#">HS PLATFORM</a> <span class="verified">&#10004;</span><br>
-      1 year ago &bull; 1K Comments &bull; #devops
-    </div>
-  </div>
+h1 a {
+  color: #111111;
+  text-decoration: none;
+}
 
-  <div class="article">
-    <a href="#" class="article-title">Kali, Parrot OS or other distro?</a>
-    <div class="article-meta">
-      by <a href="#">Compil</a><br>
-      2 hours ago &bull; 2 Comments &bull; #linux
-    </div>
-  </div>
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
 
-  <div class="article">
-    <a href="#" class="article-title">Ethical Hacker - good job or non sense?</a>
-    <div class="article-meta">
-      by <a href="#">Radeon-700</a><br>
-      7 hours ago &bull; 1 comment &bull; #hacking
-    </div>
-  </div>
+.section-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
 
-  <footer>
-    &copy; 2020 Hacking Studio Platform
-  </footer>
-</body>
-</html>
+label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  border: 1px solid #111111;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 15px;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  outline: none;
+}
+
+textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.search-box input {
+  padding-left: 30px;
+  margin-bottom: 0;
+}
+
+.search-box span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+nav a {
+  color: #111111;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-right: 12px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.article {
+  margin-bottom: 24px;
+}
+
+.article-title {
+  color: #c29b38;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  display: block;
+}
+
+.article-meta {
+  font-size: 14px;
+}
+
+.article-meta a {
+  color: #4a7ebb;
+  text-decoration: underline;
+}
+
+.verified {
+  color: #4a7ebb;
+  font-weight: bold;
+}
+
+.btn-green {
+  background: none;
+  border: none;
+  color: #6aa84f;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.btn-red {
+  background: none;
+  border: none;
+  color: #cc0000;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.blue-link {
+  color: #4a7ebb;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-right: 60px;
+}
+
+.plus-action {
+  display: inline-block;
+  margin-left: 25px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.warning-banner {
+  background-color: #cc0000;
+  color: #ffffff;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.editor-toolbar {
+  margin-bottom: 6px;
+  font-size: 15px;
+  letter-spacing: 6px;
+  cursor: pointer;
+}
+
+.checkbox-group {
+  margin-bottom: 14px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+select {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 2px 6px;
+  border: 1px solid #111111;
+  background-color: #ffffff;
+  margin-right: 4px;
+  margin-bottom: 14px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #111111;
+  width: 55%;
+  margin: 25px 0;
+}
+
+.center-block {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.center-block input {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.info-block {
+  margin-bottom: 18px;
+}
+
+.info-block strong {
+  display: block;
+  font-weight: 700;
+}
+
+.info-block em {
+  font-style: italic;
+}
+
+.studio-logs {
+  font-style: italic;
+  font-size: 15px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.log-purple {
+  color: #990099;
+}
+
+.log-gold {
+  color: #bf9000;
+}
+
+.terminal-box {
+  background-color: #000000;
+  color: #b833b8;
+  font-family: 'Consolas', 'Courier New', monospace;
+  padding: 35px 40px;
+  min-height: 300px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.terminal-cursor {
+  color: #ffffff;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+footer {
+  margin-top: 35px;
+  font-size: 15px;
+}
+
+footer a {
+  color: #4a7ebb;
+  text-decoration: underline;
+}
