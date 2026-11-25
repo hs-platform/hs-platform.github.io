@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HS Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1><a href="index.html">HS Platform</a></h1>
+
+  <div class="search-box">
+    <span>&#9906;</span>
+    <input type="text" placeholder="Search...">
+  </div>
+
+  <nav>
+    <a href="login.html">LOGIN</a>
+    <a href="studio.html">STUDIO</a>
+    <a href="add.html">ADD</a>
+    <a href="pages.html">PAGES</a>
+    <a href="academy.html">ACADEMY</a>
+  </nav>
+
+  <div class="section-title">New Articles</div>
+
+  <div class="article">
+    <a href="#" class="article-title">How to join a cybersecurity or devops brand?</a>
+    <div class="article-meta">
+      by <a href="#">HS PLATFORM</a> <span class="verified">&#10004;</span><br>
+      1 year ago &bull; 1K Comments &bull; #devops
+    </div>
+  </div>
+
+  <div class="article">
+    <a href="#" class="article-title">Kali, Parrot OS or other distro?</a>
+    <div class="article-meta">
+      by <a href="#">Compil</a><br>
+      2 hours ago &bull; 2 Comments &bull; #linux
+    </div>
+  </div>
+
+  <div class="article">
+    <a href="#" class="article-title">Ethical Hacker - good job or non sense?</a>
+    <div class="article-meta">
+      by <a href="#">Radeon-700</a><br>
+      7 hours ago &bull; 1 comment &bull; #hacking
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2020 Hacking Studio Platform
+  </footer>
+</body>
+</html>
