@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METAISO.net - HS Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .iso-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .iso-chips button {
+      background: #ffffff;
+      border: 1px solid #111111;
+      padding: 4px 10px;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .iso-chips button:hover,
+    .iso-chips button.active {
+      background: #111111;
+      color: #ffffff;
+    }
+    .iso-stats {
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    .iso-stats span {
+      margin-right: 18px;
+      font-weight: 700;
+    }
+    .family-box {
+      border: 1px solid #111111;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+    .family-header {
+      border-bottom: 1px solid #111111;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .family-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .family-header span {
+      font-size: 14px;
+      font-style: italic;
+    }
+    .release-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px dashed #cccccc;
+    }
+    .release-row:last-child {
+      border-bottom: none;
+    }
+    .dl-links a {
+      color: #4a7ebb;
+      font-weight: 700;
+      text-decoration: underline;
+      margin-left: 14px;
+      font-size: 14px;
+    }
+    .donate-amounts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .donate-amounts button {
+      border: 1px solid #111111;
+      background: #ffffff;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .donate-amounts button.selected {
+      background: #6aa84f;
+      color: #ffffff;
+      border-color: #6aa84f;
+    }
+    #no-results {
+      display: none;
+      padding: 20px;
+      border: 1px dashed #111111;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="index.html">HS Platform</a></h1>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="login.html">LOGIN</a>
+    <a href="studio.html">STUDIO</a>
+    <a href="add.html">ADD</a>
+    <a href="pages.html">PAGES</a>
+    <a href="academy.html">ACADEMY</a>
+    <a href="iso.html">ISO</a>
+  </nav>
+
+  <div class="section-title"><strong>META ISO.net</strong> &mdash; Operating systems archive with the newest versions to download.</div>
+
+  <div class="iso-stats">
+    <span>&bull; 50 families</span>
+    <span>&bull; 100 releases</span>
+    <span>&bull; SHA-256 checked</span>
+  </div>
+
+  <div class="search-box">
+    <span>&#9906;</span>
+    <input type="text" id="iso-search" placeholder="Search OS (e.g. Windows 11, Kali, Ubuntu, Debian)...">
+  </div>
+
+  <div class="iso-chips" id="quick-filters">
+    <button type="button" class="active" data-filter="">All</button>
+    <button type="button" data-filter="Windows">Windows</button>
+    <button type="button" data-filter="Ubuntu">Ubuntu</button>
+    <button type="button" data-filter="Debian">Debian</button>
+    <button type="button" data-filter="Fedora">Fedora</button>
+    <button type="button" data-filter="Kali OS">Kali OS</button>
+    <button type="button" data-filter="Arch">Arch</button>
+    <button type="button" data-filter="Gentoo">Gentoo</button>
+    <button type="button" data-filter="Alpine">Alpine Linux</button>
+    <button type="button" data-filter="BSD">BSD</button>
+    <button type="button" data-filter="Zorin">Zorin OS</button>
+    <button type="button" data-filter="Pop!">Pop! OS</button>
+    <button type="button" data-filter="Manjaro">Manjaro</button>
+    <button type="button" data-filter="MacroMag">MacroMag OS</button>
+    <button type="button" data-filter="Nobara">Nobara</button>
+    <button type="button" data-filter="Talis">Talis OS</button>
+    <button type="button" data-filter="Rocky">Rocky Linux</button>
+    <button type="button" data-filter="CentOS">CentOS</button>
+    <button type="button" data-filter="Oracle">Oracle Linux</button>
+    <button type="button" data-filter="RHEL">Redhat Linux</button>
+    <button type="button" data-filter="SUSE">SUSE</button>
+    <button type="button" data-filter="Rassbery">Rassbery Pi</button>
+    <button type="button" data-filter="Solaris">Solaris</button>
+    <button type="button" data-filter="macOS">MacOS</button>
+    <button type="button" data-filter="ReactOS">ReactOS</button>
+  </div>
+
+  <div id="no-results">No system found. Try another name, or use &ldquo;Add System&rdquo; below.</div>
+
+  <div id="iso-list">
+    <div class="family-box" data-family="Windows Microsoft">
+      <div class="family-header"><h3>Windows</h3><span>Microsoft</span></div>
+      <div class="release-row"><strong>WINDOWS 11</strong><div class="dl-links"><a href="#">x86-64-bit (4,7 GB)</a><a href="#">ARM64 (2,6 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS 10</strong><div class="dl-links"><a href="#">x86-64-bit (4,1 GB)</a><a href="#">ARM64 (1,8 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS 7</strong><div class="dl-links"><a href="#">x86-64-bit (3,5 GB)</a><a href="#">ARM64 (1,3 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS XP</strong><div class="dl-links"><a href="#">x86-64-bit (1,8 GB)</a><a href="#">ARM64 (0,7 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS ME</strong><div class="dl-links"><a href="#">32-bit (1,2 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS 2000</strong><div class="dl-links"><a href="#">32-bit (1,2 GB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS 98</strong><div class="dl-links"><a href="#">32-Bit (433 MB)</a></div></div>
+      <div class="release-row"><strong>WINDOWS 95</strong><div class="dl-links"><a href="#">32-Bit (300 MB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Ubuntu Canonical">
+      <div class="family-header"><h3>Ubuntu</h3><span>Canonical</span></div>
+      <div class="release-row"><strong>Ubuntu 26 LTS</strong><div class="dl-links"><a href="#">x86-64-bit (4,3 GB)</a><a href="#">ARM64 (2,9 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 26 XFCE</strong><div class="dl-links"><a href="#">x86-64-bit (3,7 GB)</a><a href="#">ARM64 (2,9 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 24 LTS</strong><div class="dl-links"><a href="#">x86-64-bit (3,9 GB)</a><a href="#">ARM64 (2,5 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 24 XFCE</strong><div class="dl-links"><a href="#">x86-64-bit (3,6 GB)</a><a href="#">ARM64 (2,2 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 22 LTS</strong><div class="dl-links"><a href="#">x86-64-bit (3,1 GB)</a><a href="#">ARM64 (1,8 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 22 XFCE</strong><div class="dl-links"><a href="#">x86-64-bit (2,8 GB)</a><a href="#">ARM64 (1,5 GB)</a></div></div>
+      <div class="release-row"><strong>Ubuntu 20 LTS</strong><div class="dl-links"><a href="#">x86-64-bit (2,5 GB)</a><a href="#">ARM64 (1,2 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Debian">
+      <div class="family-header"><h3>Debian</h3><span>Debian</span></div>
+      <div class="release-row"><strong>Debian 13</strong><div class="dl-links"><a href="#">x86-64-bit (0,9 GB)</a><a href="#">ARM64 (0.6 GB)</a></div></div>
+      <div class="release-row"><strong>Debian 12</strong><div class="dl-links"><a href="#">x86-64-bit (0,7 GB)</a><a href="#">ARM64 (0,5 GB)</a></div></div>
+      <div class="release-row"><strong>Debian 11</strong><div class="dl-links"><a href="#">x86-64-bit (0,5 GB)</a><a href="#">ARM64 (0,3 GB)</a></div></div>
+      <div class="release-row"><strong>Debian 10</strong><div class="dl-links"><a href="#">x86-64-bit (0,5 GB)</a><a href="#">ARM64 (0,2 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Fedora">
+      <div class="family-header"><h3>Fedora</h3><span>Fedora</span></div>
+      <div class="release-row"><strong>Fedora 44</strong><div class="dl-links"><a href="#">x86-64-bit (2,1 GB)</a><a href="#">ARM64 (1,7 GB)</a></div></div>
+      <div class="release-row"><strong>Fedora 42</strong><div class="dl-links"><a href="#">x86-64-bit (1,8 GB)</a><a href="#">ARM64 (1,5 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Kali OS NETHUNTERS">
+      <div class="family-header"><h3>Kali OS</h3><span>NETHUNTERS</span></div>
+      <div class="release-row"><strong>Kali OS (2026.1)</strong><div class="dl-links"><a href="#">x86-64-bit (3,8 GB)</a><a href="#">ARM64 (3,3 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Arch Linux">
+      <div class="family-header"><h3>Arch</h3><span>Arch Linux</span></div>
+      <div class="release-row"><strong>Arch Linux (2.6.0)</strong><div class="dl-links"><a href="#">x86-64-bit (1,8 GB)</a><a href="#">ARM64 (1,5 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Gentoo Vmorg">
+      <div class="family-header"><h3>Gentoo</h3><span>Vmorg GmbH</span></div>
+      <div class="release-row"><strong>Gentoo (1.1)</strong><div class="dl-links"><a href="#">x86-64-bit (1,2 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Alpine Linux GNU">
+      <div class="family-header"><h3>Alpine Linux</h3><span>GNU Alpine Org</span></div>
+      <div class="release-row"><strong>Alpine Linux (Tiny)</strong><div class="dl-links"><a href="#">x86-64-bit (0,5 GB)</a><a href="#">ARM64 (0,3 GB)</a></div></div>
+      <div class="release-row"><strong>Alpine Linux (Static)</strong><div class="dl-links"><a href="#">x86-64-bit (0,8 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="BSD FreeBSD OpenBSD Berkley">
+      <div class="family-header"><h3>BSD</h3><span>Berkley Foundation Datacode</span></div>
+      <div class="release-row"><strong>FreeBSD (14.1)</strong><div class="dl-links"><a href="#">x86-64-bit (1,8 GB)</a><a href="#">ARM64 (1,4 GB)</a></div></div>
+      <div class="release-row"><strong>FreeBSD (13.1)</strong><div class="dl-links"><a href="#">x86-64-bit (1,3 GB)</a><a href="#">ARM64 (0,9 GB)</a></div></div>
+      <div class="release-row"><strong>OpenBSD 10</strong><div class="dl-links"><a href="#">x86-64-bit (0,9 GB)</a><a href="#">ARM64 (0,6 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Zorin OS">
+      <div class="family-header"><h3>Zorin OS</h3><span>Zorin Inc.</span></div>
+      <div class="release-row"><strong>Zorin OS (131.0)</strong><div class="dl-links"><a href="#">x86-64-bit (3,1 GB)</a></div></div>
+      <div class="release-row"><strong>Zorin OS (121.0)</strong><div class="dl-links"><a href="#">x86-64-bit (2,6 GB)</a></div></div>
+      <div class="release-row"><strong>Zorin OS (111.0)</strong><div class="dl-links"><a href="#">x86-64-bit (2,3 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Pop! OS System 76">
+      <div class="family-header"><h3>Pop! OS</h3><span>System 76</span></div>
+      <div class="release-row"><strong>Pop! OS (Static)</strong><div class="dl-links"><a href="#">x86-64-bit (2,9 GB)</a><a href="#">ARM64 (2,5 GB)</a></div></div>
+      <div class="release-row"><strong>Pop! OS (Cosmic)</strong><div class="dl-links"><a href="#">x86-64-bit (2,2 GB)</a><a href="#">ARM64 (1,8 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Manjaro Linux">
+      <div class="family-header"><h3>Manjaro</h3><span>Manjaro KG</span></div>
+      <div class="release-row"><strong>Manjaro Linux (Leap)</strong><div class="dl-links"><a href="#">x86-64-bit (1,6 GB)</a><a href="#">ARM64 (1,2 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="MacroMag OS">
+      <div class="family-header"><h3>MacroMag OS</h3><span>MacroMag Foundation</span></div>
+      <div class="release-row"><strong>MacroMag OS (2.5)</strong><div class="dl-links"><a href="#">x86-64-bit (0,3 GB)</a></div></div>
+      <div class="release-row"><strong>MacroMag OS (2.1)</strong><div class="dl-links"><a href="#">x86-64-bit (0,1 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Nobara">
+      <div class="family-header"><h3>Nobara</h3><span>Nobara Company</span></div>
+      <div class="release-row"><strong>Nobara (Static)</strong><div class="dl-links"><a href="#">x86-64-bit (1,1 GB)</a></div></div>
+      <div class="release-row"><strong>Nobara (Leap)</strong><div class="dl-links"><a href="#">x86-64-bit (0,7 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Talis OS">
+      <div class="family-header"><h3>Talis OS</h3><span>Talis Group Inc.</span></div>
+      <div class="release-row"><strong>Talis OS 2.0</strong><div class="dl-links"><a href="#">x86-64-bit (0,9 GB)</a><a href="#">ARM64 (0,6 GB)</a></div></div>
+      <div class="release-row"><strong>Talis OS 1.0</strong><div class="dl-links"><a href="#">x86-64-bit (0,7 GB)</a><a href="#">ARM64 (0,5 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Rocky Linux">
+      <div class="family-header"><h3>Rocky Linux</h3><span>Rocky Limited</span></div>
+      <div class="release-row"><strong>Rocky Linux (1.11)</strong><div class="dl-links"><a href="#">x86-64-bit (0,9 GB)</a><a href="#">ARM64 (0,6 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="CentOS">
+      <div class="family-header"><h3>CentOS</h3><span>Cent Company</span></div>
+      <div class="release-row"><strong>CentOS (Stream)</strong><div class="dl-links"><a href="#">x86-64-bit (1,2 GB)</a><a href="#">ARM64 (0,8 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Oracle Linux">
+      <div class="family-header"><h3>Oracle Linux</h3><span>Oracle Corporation</span></div>
+      <div class="release-row"><strong>Oracle Linux (Server)</strong><div class="dl-links"><a href="#">x86-64-bit (2,9 GB)</a></div></div>
+      <div class="release-row"><strong>Oracle Linux (Basic)</strong><div class="dl-links"><a href="#">x86-64-bit (3,2 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Redhat Linux RHEL">
+      <div class="family-header"><h3>Redhat Linux</h3><span>Redhat Inc.</span></div>
+      <div class="release-row"><strong>RHEL 9</strong><div class="dl-links"><a href="#">x86-64-bit (4,1 GB)</a><a href="#">ARM64 (3,6 GB)</a></div></div>
+      <div class="release-row"><strong>RHEL 8</strong><div class="dl-links"><a href="#">x86-64-bit (3,5 GB)</a><a href="#">ARM64 (3,1 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="SUSE SLES">
+      <div class="family-header"><h3>SUSE</h3><span>SLES</span></div>
+      <div class="release-row"><strong>SUSE Server (1.0)</strong><div class="dl-links"><a href="#">x86-64-bit (1,8 GB)</a><a href="#">ARM64 (1,3 GB)</a></div></div>
+      <div class="release-row"><strong>SUSE Mate (1.0)</strong><div class="dl-links"><a href="#">x86-64-bit (2,4 GB)</a><a href="#">ARM64 (1,6 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Rassbery Pi">
+      <div class="family-header"><h3>Rassbery Pi</h3><span>Rassbery Company</span></div>
+      <div class="release-row"><strong>Rassbery PI OS (1.1)</strong><div class="dl-links"><a href="#">x86-64-bit (1,7 GB)</a><a href="#">ARM64 (1,4 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="Solaris">
+      <div class="family-header"><h3>Solaris</h3><span>Solaris Corporation</span></div>
+      <div class="release-row"><strong>Solaris 11</strong><div class="dl-links"><a href="#">x86-64-bit (0,6 GB)</a></div></div>
+      <div class="release-row"><strong>Solaris 10</strong><div class="dl-links"><a href="#">x86-64-bit (0,5 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="MacOS Apple">
+      <div class="family-header"><h3>MacOS</h3><span>Apple Inc.</span></div>
+      <div class="release-row"><strong>macOS 15 Sequoia</strong><div class="dl-links"><a href="#">x86-64-bit (3,4 GB)</a></div></div>
+      <div class="release-row"><strong>macOS 14 Sonoma</strong><div class="dl-links"><a href="#">x86-64-bit (3,0 GB)</a></div></div>
+      <div class="release-row"><strong>macOS 13 Ventura</strong><div class="dl-links"><a href="#">x86-64-bit (2,4 GB)</a></div></div>
+      <div class="release-row"><strong>macOS 12 Monterey</strong><div class="dl-links"><a href="#">x86-64-bit (2,0 GB)</a></div></div>
+      <div class="release-row"><strong>macOS 11 Big Sur</strong><div class="dl-links"><a href="#">x86-64-bit (1,5 GB)</a></div></div>
+    </div>
+
+    <div class="family-box" data-family="ReactOS">
+      <div class="family-header"><h3>ReactOS</h3><span>ReactOS Company</span></div>
+      <div class="release-row"><strong>ReactOS 2.0</strong><div class="dl-links"><a href="#">x86-64-bit (0,7 GB)</a></div></div>
+      <div class="release-row"><strong>ReactOS 1.1</strong><div class="dl-links"><a href="#">x86-64-bit (0,5 GB)</a></div></div>
+    </div>
+  </div>
+
+  <div class="section-title"><strong>Add System To metaiso.net</strong></div>
+  <form action="iso.html" style="margin-bottom: 35px;">
+    <label for="author-name">Name And Surname</label>
+    <input type="text" id="author-name">
+
+    <label for="os-name">Name Of OS *</label>
+    <input type="text" id="os-name" required>
+
+    <label>OS Family *</label>
+    <div class="checkbox-group">
+      <div class="checkbox-item"><input type="radio" name="os-fam" id="f-linux" checked> <label for="f-linux" style="margin:0;">Linux</label></div>
+      <div class="checkbox-item"><input type="radio" name="os-fam" id="f-unix"> <label for="f-unix" style="margin:0;">Unix</label></div>
+      <div class="checkbox-item"><input type="radio" name="os-fam" id="f-bsd"> <label for="f-bsd" style="margin:0;">BSD</label></div>
+      <div class="checkbox-item"><input type="radio" name="os-fam" id="f-qemu"> <label for="f-qemu" style="margin:0;">QEMU</label></div>
+      <div class="checkbox-item"><input type="radio" name="os-fam" id="f-other"> <label for="f-other" style="margin:0;">Other</label></div>
+    </div>
+
+    <label for="src-url">Source Code URL</label>
+    <input type="text" id="src-url">
+
+    <label for="os-ver">Version *</label>
+    <input type="text" id="os-ver" required>
+
+    <label for="iso-url">(.iso) File URL *</label>
+    <input type="text" id="iso-url" required>
+
+    <label for="os-comp">Company / Owner *</label>
+    <input type="text" id="os-comp" required>
+
+    <button type="submit" class="btn-green">ADD</button>
+  </form>
+
+  <div class="section-title"><strong>About Us</strong></div>
+  <div class="info-block">
+    <p>METAISO.net is well-known operating systems archive with newest versions to download, Like Windows, MacOS, Linux and others.</p>
+    <p>Best Source To download systems safety with SHA-256 encryption. Best Way is you can add missing system in to our form on the site.</p>
+    <p><em>All rights to system copyright belongs to respective owners.</em></p>
+  </div>
+
+  <div class="section-title"><strong>FAQ</strong></div>
+  <div class="info-block">
+    <strong>1. How to add missing system?</strong>
+    <em>On Site click (&ldquo;Add System&rdquo;) and fill the form, your report is get checked about 72h or more.</em>
+  </div>
+  <div class="info-block">
+    <strong>2. Is Files are legal?</strong>
+    <em>Yes, All systems are reviewed by our team and get verifed status.</em>
+  </div>
+  <div class="info-block">
+    <strong>3. Why Site looks old?</strong>
+    <em>Our site &bdquo;old style&rdquo; is part of our orginal style.</em>
+  </div>
+  <div class="info-block">
+    <strong>4. How to download iso File?</strong>
+    <em>On site click search and type your wanted system, then click: x86-64-bit(1,0 GB) Button and wait until it downloads.</em>
+  </div>
+  <div class="info-block">
+    <strong>5. Who are copyright owner of this site?</strong>
+    <em>&copy; 2026 Meta ISO Group Collective (Jim Seal)</em>
+  </div>
+
+  <div class="section-title"><strong>SUPPORT US</strong></div>
+  <p>Our site works as non-profit company, so service need your help. To work without ad's please support us as donate, to keep us work. Donation is 100% optional, you can still use our site for free.</p>
+
+  <div class="donate-amounts" id="donate-btns">
+    <button type="button" class="selected">5 $</button>
+    <button type="button">10 $</button>
+    <button type="button">20 $</button>
+    <button type="button">50 $</button>
+    <button type="button">100 $</button>
+    <button type="button">Other</button>
+  </div>
+  <button type="button" class="btn-green" onclick="alert('Thank you for supporting METAISO.net!')">DONATE</button>
+
+  <footer>
+    &copy; 2026 Meta ISO Group Collective (Jim Seal) &middot; All rights to system copyright belongs to respective owners.
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('iso-search');
+    const boxes = document.querySelectorAll('.family-box');
+    const noResults = document.getElementById('no-results');
+    const filterBtns = document.querySelectorAll('#quick-filters button');
+
+    function filterSystems(query) {
+      const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      boxes.forEach(box => {
+        const text = box.innerText.toLowerCase();
+        const fam = box.dataset.family.toLowerCase();
+        if (text.includes(q) || fam.includes(q)) {
+          box.style.display = 'block';
+          visibleCount++;
+        } else {
+          box.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      filterSystems(e.target.value);
+    });
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const val = btn.dataset.filter;
+        searchInput.value = val;
+        filterSystems(val);
+      });
+    });
+
+    document.querySelectorAll('#donate-btns button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#donate-btns button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
