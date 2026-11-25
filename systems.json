@@ -1,0 +1,13 @@
+{
+  "archive": "METAISO.net",
+  "families": 50,
+  "releases": 100,
+  "checksum": "SHA-256",
+  "featured": [
+    {"name": "WINDOWS 11", "arch": "x86-64-bit", "size": "4.7 GB", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"name": "Ubuntu 26 LTS", "arch": "x86-64-bit", "size": "4.3 GB", "sha256": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4"},
+    {"name": "Kali OS (2026.1)", "arch": "x86-64-bit", "size": "3.8 GB", "sha256": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"},
+    {"name": "Debian 13", "arch": "x86-64-bit", "size": "0.9 GB", "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"}
+  ]
+}
+

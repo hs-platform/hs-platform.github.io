@@ -1,0 +1,10 @@
+{
+  "name": "HS Platform & METAISO Archive",
+  "short_name": "HS Platform",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "description": "Hacking Studio Platform, Codespace IDE & Operating Systems Archive"
+}
+
