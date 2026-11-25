@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages - HS Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1><a href="index.html">HS Platform</a></h1>
+
+  <div class="section-title">Pages</div>
+  <div class="section-title">Create Page Website</div>
+
+  <form action="index.html">
+    <label for="link-url">Link URL</label>
+    <input type="text" id="link-url" placeholder="example.platform.hs.io">
+
+    <label for="site-title">Title</label>
+    <input type="text" id="site-title">
+
+    <label><em>index.html</em> File</label>
+    <label class="plus-action" for="html-upload">+ &nbsp;&nbsp; Add (.html)</label>
+    <input type="file" id="html-upload" accept=".html" style="display:none;">
+
+    <label>Favicon File</label>
+    <label class="plus-action" for="png-upload">+ &nbsp;&nbsp; Add (.png)</label>
+    <input type="file" id="png-upload" accept=".png" style="display:none;">
+
+    <div>
+      <button type="submit" class="btn-green">CREATE SITE</button>
+    </div>
+  </form>
+</body>
+</html>
