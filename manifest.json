@@ -5,6 +5,12 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#111111",
-  "description": "Hacking Studio Platform, Codespace IDE & Operating Systems Archive"
+  "description": "Hacking Studio Platform, Codespace IDE & Operating Systems Archive",
+  "icons": [
+    {
+      "src": "favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
 }
-
