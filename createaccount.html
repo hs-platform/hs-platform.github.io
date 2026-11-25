@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - HS Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1><a href="index.html">HS Platform</a></h1>
+
+  <div class="section-title">Create Account</div>
+
+  <form action="login.html">
+    <label for="name">Name*</label>
+    <input type="text" id="name" required>
+
+    <label for="email">E-Mail*</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Password (must contain min. 12 signs)*</label>
+    <input type="password" id="password" minlength="12" required>
+
+    <label>Date of birth*</label>
+    <div>
+      <select required>
+        <option value="">Day</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+        <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+        <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+        <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+        <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+        <option>31</option>
+      </select>
+      <select required>
+        <option value="">Month</option>
+        <option>January</option><option>February</option><option>March</option>
+        <option>April</option><option>May</option><option>June</option>
+        <option>July</option><option>August</option><option>September</option>
+        <option>October</option><option>November</option><option>December</option>
+      </select>
+      <select required>
+        <option value="">Year</option>
+        <option>2008</option><option>2007</option><option>2006</option><option>2005</option>
+        <option>2004</option><option>2003</option><option>2002</option><option>2001</option>
+        <option>2000</option><option>1999</option><option>1998</option><option>1995</option>
+        <option>1990</option>
+      </select>
+    </div>
+
+    <label>Type Of Account*</label>
+    <div class="checkbox-group">
+      <div class="checkbox-item"><input type="checkbox" id="t1"> <label for="t1" style="margin:0;">I’m Student</label></div>
+      <div class="checkbox-item"><input type="checkbox" id="t2"> <label for="t2" style="margin:0;">I’m Adult Novice</label></div>
+      <div class="checkbox-item"><input type="checkbox" id="t3"> <label for="t3" style="margin:0;">I’m Basic “Read-only” User</label></div>
+    </div>
+
+    <label>My Topics (optional)</label>
+    <div class="checkbox-group">
+      <div class="checkbox-item"><input type="checkbox" id="top1"> <label for="top1" style="margin:0;">Linux / Systems / Programmer</label></div>
+      <div class="checkbox-item"><input type="checkbox" id="top2"> <label for="top2" style="margin:0;">Hacking / Cybersecurity / Network</label></div>
+      <div class="checkbox-item"><input type="checkbox" id="top3"> <label for="top3" style="margin:0;">Other</label></div>
+    </div>
+
+    <div class="checkbox-item" style="margin-top: 12px;">
+      <input type="checkbox" id="terms" checked required>
+      <label for="terms" style="margin:0;">* I Accept <a href="legal.html" style="color:#4a7ebb; font-style:italic;">Terms Of Use</a> of HS Platform Service.</label>
+    </div>
+
+    <button type="submit" class="btn-red">CREATE ACCOUNT</button>
+  </form>
+
+  <footer>
+    &copy; 2020 Hacking Studio Platform GmbH
+  </footer>
+</body>
+</html>
