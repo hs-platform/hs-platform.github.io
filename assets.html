@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets &amp; Tools - HS Platform</title>
+    <!-- Podpięcie istniejącego arkusza stylów z repozytorium -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <style>
+        /* Dodatkowe style dla sekcji narzędzi i formularza */
+        .assets-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label.title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .assets-container input[type="text"],
+        .assets-container input[type="email"],
+        .assets-container input[type="url"],
+        .assets-container textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="assets-container">
+        <h1>HS Platform</h1>
+        <p><strong>Assets</strong></p>
+        <hr>
+
+        <h2>Tools in HS</h2>
+
+        <h3>● Website-bug</h3>
+        <p><strong>Codespace (HS)</strong></p>
+        <div class="code-block">
+            get module web-bug<br>
+            -r "check version" &amp;&amp; get<br>
+            start web-bug
+        </div>
+        <p><strong>Git</strong></p>
+        <div class="code-block">
+            git clone (<a href="https://github.com/hs-platform" target="_blank">https://github.com</a>)<br>
+            git install "modules/web-bug.pkg"<br>
+            run +x
+        </div>
+
+        <h3>● Wire-dolphin</h3>
+        <p><strong>Codespace (HS)</strong></p>
+        <div class="code-block">
+            get module wire-dolphin<br>
+            -r "check version" &amp;&amp; get<br>
+            start wire-dolphin
+        </div>
+        <p><strong>Git</strong></p>
+        <div class="code-block">
+            git clone (<a href="https://github.com" target="_blank">https://github.com</a>)<br>
+            git install "modules/wire-dolphin.pkg"<br>
+            run +x
+        </div>
+
+        <h3>● Topic-website-metadata</h3>
+        <p><strong>Codespace (HS)</strong></p>
+        <div class="code-block">
+            get module topic-metadata<br>
+            -r "check version" &amp;&amp; get<br>
+            start topic-metadata
+        </div>
+        <p><strong>Git</strong></p>
+        <div class="code-block">
+            git clone (<a href="https://github.com" target="_blank">https://github.com</a>)<br>
+            git install "modules/topic-metadata.pkg"<br>
+            run +x
+        </div>
+
+        <p><a href="https://github.com" target="_blank">More tools...</a></p>
+        <hr>
+
+        <h2>GET HACKER-OID Member</h2>
+        <ul>
+            <li><strong>Recognizable Badge ID</strong></li>
+            <li><strong>Good in the DevOps industry</strong></li>
+            <li><strong>Completely Free &amp; Easy</strong></li>
+        </ul>
+
+        <h3>Form</h3>
+        <!-- Wstaw swój link z Formspree w atrybucie action -->
+        <form action="https://formspree.io" method="POST">
+            
+            <div class="form-group">
+                <label class="title" for="name">Name &amp; Surname *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="title">Brand *</label>
+                <label><input type="checkbox" name="brand" value="DevOps"> DevOps</label>
+                <label><input type="checkbox" name="brand" value="Cybersecurity"> Cybersecurity</label>
+                <label><input type="checkbox" name="brand" value="Ethical Hacking"> Ethical Hacking</label>
+                <label><input type="checkbox" name="brand" value="Networking"> Networking</label>
+                <label><input type="checkbox" name="brand" value="Linux Admin"> Linux Admin</label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="title">Certifications *</label>
+                <label><input type="checkbox" name="cert" value="CompTIA++"> CompTIA++</label>
+                <label><input type="checkbox" name="cert" value="LPI: Essentials"> LPI: Essentials</label>
+                <label><input type="checkbox" name="cert" value="CCNA"> CCNA</label>
+                <label><input type="checkbox" name="cert" value="CEH"> CEH</label>
+                <label><input type="checkbox" name="cert" value="Other"> Other / I don't have</label>
+            </div>
+
+            <div class="form-group">
+                <label class="title" for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="title" for="about">About Me (optional)</label>
+                <textarea id="about" name="about" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="title" for="secret">Secret Code (10-digit) *</label>
+                <small>(Tip: Only this code allows you to edit the badge settings; it is stored in the secret keys label.)</small>
+                <input type="text" id="secret" name="secret" maxlength="10" minlength="10" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="title">Package *</label>
+                <label><input type="checkbox" name="package" value="Students"> HS for Students</label>
+                <label><input type="checkbox" name="package" value="Teachers"> HS for Teachers</label>
+                <label><input type="checkbox" name="package" value="Individuals"> HS for Individuals</label>
+                <label><input type="checkbox" name="package" value="Industry"> HS for Industry</label>
+                <label><input type="checkbox" name="package" value="None"> None</label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="title">Company *</label>
+                <label><input type="checkbox" name="company" value="Yes"> Yes, i got</label>
+                <label><input type="checkbox" name="company" value="None"> None</label>
+            </div>
+
+            <div class="form-group">
+                <label class="title">Posts on trusted platforms (URL)</label>
+                
+                <label for="url-linux"><a href="https://linux.org" target="_blank">Linux.org</a></label>
+                <input type="url" id="url-linux" name="url_linux"><br><br>
+
+                <label for="url-rtd"><a href="https://readthedocs.io" target="_blank">readthedocs.io</a></label>
+                <input type="url" id="url-rtd" name="url_rtd"><br><br>
+
+                <label for="url-medium"><a href="https://medium.com" target="_blank">medium.com</a></label>
+                <input type="url" id="url-medium" name="url_medium"><br><br>
+
+                <label for="url-github"><a href="https://github.com" target="_blank">github.com</a></label>
+                <input type="url" id="url-github" name="url_github"><br><br>
+
+                <label for="url-wiki"><a href="https://wikibooks.org" target="_blank">wikibooks.org</a></label>
+                <input type="url" id="url-wiki" name="url_wiki">
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="title">Country *</label>
+                <label><input type="checkbox" name="country" value="Europe"> Europe</label>
+                <label><input type="checkbox" name="country" value="Asia"> Asia</label>
+                <label><input type="checkbox" name="country" value="Africa"> Africa</label>
+                <label><input type="checkbox" name="country" value="South America"> South America</label>
+                <label><input type="checkbox" name="country" value="North America"> North America</label>
+                <label><input type="checkbox" name="country" value="Oceania"> Oceania</label>
+                <label><input type="checkbox" name="country" value="Other"> Other</label>
+            </div>
+
+            <p><strong>The Hacker Official ID (OID) It will be generated and sent by email in 24 hours or longer.</strong><br>
+            <strong>Exemplo : (EU-0000-1234-az) .</strong></p>
+
+            <button type="submit" class="submit-btn">SEND FORM</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2020 Hacker Studio Platform</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
